@@ -1,0 +1,15 @@
+# filepath: d:\Dev\searxng-docker\searxng.yaml
+server:
+  bind_address: 0.0.0.0
+  port: 8080
+  base_url: https://searxng.kakak.ai
+  secret_key: "94b2ea1dfcd7d570e3fa2fa66e130e5bc2ce69b5b2f939823ffa6fddb471d5dd"  # Ganti dengan kunci acak
+
+search:
+  safe_search: 2
+  autocomplete: ''
+
+ui:
+  static_path: ""
+  templates_path: ""
+  default_theme: simple
