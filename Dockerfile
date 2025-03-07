@@ -8,7 +8,7 @@ EXPOSE 8080
 ENV PORT=8080
 
 # Copy any custom configuration
-COPY searxng.yaml /etc/searxng/searxng.yaml
+COPY searxng.yml /etc/searxng/searxng.yaml
 
 # Command to start SearXNG
 CMD ["uwsgi", "--master", "--http-socket", "0.0.0.0:8080", "--plugin", "python", "--module", "searx.webapp"]
