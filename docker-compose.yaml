@@ -13,8 +13,8 @@ services:
     environment:
       - SEARXNG_HOSTNAME=${SEARXNG_HOSTNAME:-http://localhost}
       - SEARXNG_TLS=${LETSENCRYPT_EMAIL:-internal}
-    cap_drop:
-      - ALL
+    # cap_drop:
+    #   - ALL
     cap_add:
       - NET_BIND_SERVICE
     logging:
