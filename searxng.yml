@@ -1,15 +1,37 @@
-# filepath: d:\Dev\searxng-docker\searxng.yaml
+# see https://docs.searxng.org/admin/settings/settings.html#settings-use-default-settings
+use_default_settings: true
 server:
-  bind_address: 0.0.0.0
-  port: 8080
-  base_url: https://searxng-docker-239574508153.asia-southeast1.run.app
-  secret_key: "94b2ea1dfcd7d570e3fa2fa66e130e5bc2ce69b5b2f939823ffa6fddb471d5dd"  # Ganti dengan kunci acak
-
-search:
-  safe_search: 2
-  autocomplete: ''
+  # base_url is defined in the SEARXNG_BASE_URL environment variable, see .env and docker-compose.yml
+  secret_key: "a2fb23f1b02e6ee83875b09826990de0f6bd908b6638e8c10277d415f6ab852b"  # change this!
+  limiter: false  # can be disabled for a private instance
+  image_proxy: true
 
 ui:
-  static_path: ""
-  templates_path: ""
-  default_theme: simple
+  static_use_hash: true
+
+redis:
+  url: redis://redis:6379/0
+
+general:
+  instance_name: 'searxng'
+
+search:
+  autocomplete: 'google'
+  formats:
+    - html
+    - json
+
+engines:
+  - name: wolframalpha
+    disabled: false
+    
+outgoing:
+  request_timeout: 10.0
+  useragent_suffix: ""
+  pool_connections: 100
+  pool_maxsize: 10
+  max_request_timeout: 10.0
+
+# Disable bot detection
+botdetection:
+  enabled: false
